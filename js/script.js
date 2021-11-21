@@ -38,6 +38,6 @@ function changeList(event) {
       toggleElem(target);
       break;
     default:
-      break;
+      console.error('error');
   }
 }
