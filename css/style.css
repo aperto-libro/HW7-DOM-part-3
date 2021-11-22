@@ -28,7 +28,6 @@ body {
 
 .add-button {
   padding: 10px 40px;
-  /* font-size: 14px; */
   font-weight: 500;
   letter-spacing: 0.06em;
   background-color: #727272;
@@ -66,37 +65,35 @@ body {
 }
 
 .remove-button {
-  margin-left: 10px;
-  padding: 5px;
+  padding: 5px 15px;
   letter-spacing: 0.06em;
   background-color: #bdbebe;
   color: #fff;
 
   border: none;
   outline: none;
-  border-radius: 3px;
 }
 
 .remove-button:hover {
   background-color: #929394;
-  color: #fff;
+  color: red;
 }
 
 .list {
-  /* margin-top: 30px; */
   padding: 0;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 0);
+  border-radius: 60px 3px 3px 60px;
 }
 
 .list-item:not(last-child) {
   padding-left: 15px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.to-do {
-  background-color: rgb(255, 255, 0);
+  margin-top: 2px;
 }
 
 .done {

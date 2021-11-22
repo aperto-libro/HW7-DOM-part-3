@@ -7,23 +7,26 @@ ul.addEventListener('click', changeList);
 
 function createListItem() {
   let li = document.createElement('li');
-  li.innerHTML = `—  ${input.value}<button class="remove-button">Remove</button>`;
-  li.className = 'list-item to-do';
+  li.innerHTML = `&#6145 ${input.value}<button class="remove-button">&#10006;</button>`;
+  li.className = 'list-item';
   ul.append(li);
 }
 
 function addListItem() {
-  if (!input.value) return;
-  createListItem();
-  input.value = '';
+  if (input.value) {
+    createListItem();
+    input.value = '';
+    input.placeholder = 'Enter new ToDo';
+  } else {
+    input.placeholder = "This field can't be empty!";
+  }
 }
 
 function removeElem(el) {
-  el.parentNode.remove();
+  el.closest('li').remove();
 }
 
 function toggleElem(el) {
-  el.classList.toggle('to-do');
   el.classList.toggle('done');
 }
 
@@ -38,6 +41,6 @@ function changeList(event) {
       toggleElem(target);
       break;
     default:
-      console.error('error');
+      break;
   }
 }
