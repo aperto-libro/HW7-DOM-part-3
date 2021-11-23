@@ -2,24 +2,22 @@ const input = document.querySelector('.todo-input');
 const button = document.querySelector('.add-button');
 const ul = document.querySelector('.list');
 
-button.addEventListener('click', addListItem);
+button.addEventListener('click', function () {
+  if (input.value) {
+    let data = createListItem(input.value);
+
+    ul.append(data);
+    input.value = '';
+  }
+});
+
 ul.addEventListener('click', changeList);
 
-function createListItem() {
+function createListItem(elem) {
   let li = document.createElement('li');
-  li.innerHTML = `&#6145 ${input.value}<button class="remove-button">&#10006;</button>`;
+  li.innerHTML = `&#6145 ${elem}<button class="remove-button">&#10006;</button>`;
   li.className = 'list-item';
-  ul.append(li);
-}
-
-function addListItem() {
-  if (input.value) {
-    createListItem();
-    input.value = '';
-    input.placeholder = 'Enter new ToDo';
-  } else {
-    input.placeholder = "This field can't be empty!";
-  }
+  return li;
 }
 
 function removeElem(el) {
@@ -41,6 +39,6 @@ function changeList(event) {
       toggleElem(target);
       break;
     default:
-      break;
+      console.log('error');
   }
 }
