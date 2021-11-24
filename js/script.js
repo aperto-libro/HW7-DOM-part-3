@@ -1,6 +1,6 @@
 const input = document.querySelector('.todo-input');
-const button = document.querySelector('.add-button');
-const ul = document.querySelector('.list');
+const button = document.querySelector('.add-todo');
+const ul = document.querySelector('.todo-list');
 
 button.addEventListener('click', function () {
   if (input.value) {
@@ -15,8 +15,8 @@ ul.addEventListener('click', changeList);
 
 function createListItem(elem) {
   let li = document.createElement('li');
-  li.innerHTML = `&#6145 ${elem}<button class="remove-button">&#10006;</button>`;
-  li.className = 'list-item';
+  li.innerHTML = `&#6145 ${elem}<button class="remove-todo">&#10006;</button>`;
+  li.classList.add('list-item');
   return li;
 }
 
